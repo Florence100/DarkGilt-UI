@@ -1,0 +1,21 @@
+[rel="control.editbox"] {
+    @include flex-column;
+
+    & label {
+        color: $textAccentColor;
+        font-size: $fontSize-S;
+        margin-bottom: 5px;
+        max-width: 100%;
+    }
+    & .error-message {
+        margin: 5px 0;
+        width: $inputWidth;
+        max-width: 100%;
+        min-height: 30px;
+        box-sizing: border-box;
+        font-size: $fontSize-S;
+        color: $textColor;
+        cursor: default;
+        line-height: 1;
+    }
+}

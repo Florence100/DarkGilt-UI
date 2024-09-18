@@ -1,0 +1,50 @@
+const editBoxRootNode = document.querySelector('[rel="control.editBox"]');
+
+function callbackOnVerify() {
+    console.log(this);
+    //for 2, 3, 5 USE CASES this should be Model class instance
+    //for 4 USE CASE should be DOM node
+}
+
+function callbackOnInput() {
+    console.log(this);
+    //for 2, 3, 5 USE CASES this should be Model class instance
+    //for 4 USE CASE should be DOM node
+}
+
+0 USE CASE:
+    EditBox.init();
+    const instanses = EditBox.instances;
+    instances.forEach(instanse => {
+        ...to do smth
+    })
+
+1 USE CASE:
+    const editBox = new EditBox({rootNode: editBoxRootNode});
+
+2 USE CASE:
+    const editBox = new EditBox({rootNode: editBoxRootNode, onVerify: callbackOnVerify});
+
+    for version 1.1 and more:
+    const editBox = new EditBox({rootNode: editBoxRootNode, onInput: callbackOnInput});
+
+3 USE CASE:
+    const editBox = new EditBox({rootNode: editBoxRootNode});
+    editBox.onVerify(callbackOnVerify);
+
+    for version 1.1 and more:
+    editBox.onInput(callbackOnInput);
+
+4 USE CASE:
+    const editBox = new EditBox({rootNode: editBoxRootNode});
+    editBoxRootNode.addEventListener('verify', callbackOnVerify);
+
+    for version 1.1 and more:
+    editBoxRootNode.addEventListener('input', callbackOnInput);
+
+5 USE CASE (for version 1.1 and more):
+    Pass the data-on-verify OR/END data-on-input attribute/es to editBoxRootNode;
+    The value of the attribute must be a function as a string
+    const editBox = new EditBox({rootNode: editBoxRootNode});
+    or:
+    EditBox.init();

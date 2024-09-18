@@ -1,0 +1,73 @@
+.checkbox {
+    margin-bottom: 15px;
+}
+
+.custom-checkbox {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+// ------------------------------------ default ------------------------------------ //
+
+.custom-checkbox+label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    color: $textColor;
+    cursor: pointer;
+}
+
+.custom-checkbox+label::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: $checkboxBgColor;
+    border-radius: 5px;
+    border: 1px solid $checkboxBgColor;
+    box-shadow: $boxShadowCheckbox;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+// --------------------------- not disabled + hover ------------------------------- //
+
+.custom-checkbox:not(:disabled)+label:hover::before {
+    background: $checkboxBgColorHover;
+    box-shadow: $boxShadowCheckboxHover;
+}
+
+.custom-checkbox:not(:disabled):hover+label {
+    color: $textColorLight;
+}
+
+
+// ------------------------------------ checked ------------------------------------ //
+
+.custom-checkbox:checked+label::before {
+    @include checkMarkBackgroundImage;
+    background-size: 14px;
+}
+
+.custom-checkbox:checked+label:hover::before {
+    background: $checkboxBgColorHover;
+    box-shadow: $boxShadowCheckboxHover;
+    @include checkMarkBackgroundImage;
+    background-size: 14px;
+}
+
+// ---------------------------- focused, focused + hover --------------------------- //
+
+.custom-checkbox:focus+label::before,
+.custom-checkbox:focus+label:hover::before {
+    box-shadow: $boxShadowRadioButtonFocus;
+}
+
+// ------------------------------------ disabled ----------------------------------- //
+
+.custom-checkbox:disabled+label {
+    color: rgba($textColor, 0.5);
+    cursor: default;
+}

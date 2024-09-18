@@ -1,0 +1,66 @@
+.radio {
+    margin-bottom: 15px;
+}
+
+.custom-radio {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+// ------------------------------------ default ------------------------------------ //
+
+.custom-radio+label {
+    color: $textColor;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.custom-radio+label::before {
+    content: '';
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background-color: $radioButtonBgColor;
+    border-radius: 50%;
+    box-shadow: $boxShadowRadioButton;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-right: 20px;
+    border: 1px solid $radioButtonBgColor;
+}
+
+// --------------------- not checked + not disabled + hover ------------------------ //
+
+.custom-radio:not(:disabled):not(:checked)+label:hover {
+    color: $textColorLight;
+}
+
+.custom-radio:not(:disabled):not(:checked)+label:hover::before {
+    background-color: $radioButtonBgColorHover;
+    box-shadow: $boxShadowRadioButtonHover;
+}
+
+// ------------------------------------ checked ------------------------------------ //
+
+.custom-radio:checked+label::before {
+    background-image: url('../assets/svg/circle.svg');
+    background-size: 8px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// ------------------------------------ focused ------------------------------------ //
+
+.custom-radio:checked:focus+label::before {
+    box-shadow: $boxShadowRadioButtonFocus;
+}
+
+
+// ------------------------------------ disabled ----------------------------------- //
+
+.custom-radio:disabled+label {
+    color: rgba($textColor, 0.5);
+    cursor: default;
+}

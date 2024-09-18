@@ -1,0 +1,37 @@
+.input {
+    background: $inputBgColor;
+    border-top: 1px solid $secondaryColor;
+    border-left: 1px solid $secondaryColor;
+    border-bottom: 1px solid rgba(241, 210, 117, 0);
+    padding: 15px;
+    color: $textColor;
+    font-size: $fontSize-M;
+    font-family: 'Roboto-Regular';
+    font-weight: 400;
+
+    &:focus {
+        border-bottom: 1px solid $primaryColor;
+    }
+    &:hover {
+        background: lighter($inputBgColor, 0.5);
+    }
+
+    &::-moz-placeholder {
+        color: rgba($textColor, 0.5);
+    }
+
+    &::-webkit-input-placeholder {
+        color: rgba($textColor, 0.5);
+    }
+}
+
+.input-name, 
+.input-email {
+    width: $inputWidth;
+    height: $inputHeight;
+    max-width: 100%;
+}
+
+.input-box {
+    display: inline-block;
+}

@@ -1,0 +1,47 @@
+@mixin flex-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin gradient-animation($start, $end, $transTime) {
+    background-image: $start;
+    background-size: 100%;
+    position: relative;
+    z-index: 10;
+    &:before {
+        background-image: $end;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+        opacity: 0;
+        width: 100%;
+        z-index: -10;
+        border-radius: inherit;
+        box-shadow: inherit;
+        transition: opacity $transTime;
+    }
+    &:not(:disabled):hover, &:not(:disabled):focus {
+        &:before {
+          opacity: 1;
+        }
+    }
+}
+
+@mixin checkMarkBackgroundImage {
+    background-image: url('../assets/img/check-mark.png');
+    background-position: center;
+    background-repeat: no-repeat;
+}

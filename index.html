@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkGilt-UI</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.7.3/lottie.min.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <wrapper class="wrapper" style="width: 100%; min-height: 100vh; margin: 0 auto; display: flex; flex-direction: column; gap: 80px; padding: 1rem;">
+        <div class="buttons-container" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+            <div style="display: flex; gap: 20px;">
+                <button type="submit" class="button">watch teaser</button>
+                <button type="submit" class="button" disabled>watch teaser</button>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <button id="open-modal" type="submit" class="button button-accent">open modal</button>
+                <button id="open-modal" type="submit" class="button button-accent" disabled>open modal</button>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <button id="entry-button_4" class="button button-accent"><canvas id="dotLottie-canvas_4" style="height: 100%; position: relative; left: -8px;"></canvas></button>
+                <button id="entry-button_1" class="button button-accent"><canvas id="dotLottie-canvas_1" style="height: 100%;"></canvas></button>
+                <button id="entry-button_3" class="button button-accent"><canvas id="dotLottie-canvas_3" style="height: 100%;"></canvas></button>
+            </div>
+            <div style="display: flex; gap: 20px;">
+                <button class="button button-accent">
+                    <div style="height: 70%; width: 100%; background-image: url('assets/img/door.png'); background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
+                </button>
+            </div>
+            <!-- <div style="display: flex; gap: 20px;">
+                <button class="button button-accent">
+                    <canvas id="dotLottie-canvas" style="width: 100%; height: 100%;"></canvas>
+                </button>
+            </div> -->
+        </div>
+        <div class="inputs-container" style="display: flex; flex-direction: column; justify-content: space-between; gap: 20px;">
+            <form class="form">
+                <div rel="control.editBox" class="editbox-name" data-on-input="alert('On change')" data-on-verify="alert('On verify')">
+                    <label class="label" for="name">Full Name</label>
+                    <div  class="input-box">
+                        <input 
+                            rel="input"
+                            data-pattern="[a-zA-Z0-9]+$"
+                            data-verify-on-input="false"
+                            placeholder=""
+                            type="text"
+                            name="name"
+                            value=""
+                            class="input input-name"
+                           
+                        />
+                    </div>
+                    <span rel="message" data-error="Please make sure that the entered data is correct" class="error-message"></span>
+                </div>
+            </form>
+            <form class="form">
+                <div rel="control.editBox" class="editbox-name">
+                    <div  class="input-box">
+                        <input 
+                            rel="input"
+                            data-pattern="[a-zA-Z0-9]+$"
+                            data-verify-on-input="false"
+                            placeholder="Full Name"
+                            type="text"
+                            name="name"
+                            value=""
+                            class="input input-name"
+                        />
+                    </div>
+                    <span rel="message" data-error="Please make sure that the entered data is correct" class="error-message"></span>
+                </div>
+            </form>
+        </div>
+        <div style="display: flex; gap: 100px;">
+            <div class="radio-container">
+                <div class="radio">
+                    <input class="custom-radio" name="radio" type="radio" id="value-1" value="Option-1" checked>
+                    <label for="value-1">Option 1</label>
+                </div>
+                <div class="radio">
+                    <input class="custom-radio" name="radio" type="radio" id="value-2" value="Option-2">
+                    <label for="value-2">Option 2</label>
+                </div>
+                <div class="radio">
+                    <input class="custom-radio" name="radio" type="radio" id="value-3" value="Option-3">
+                    <label for="value-3">Option 3</label>
+                </div>
+                <div class="radio">
+                    <input class="custom-radio" name="radio" type="radio" id="value-4" value="Option-4" disabled>
+                    <label for="value-4">Disabled</label>
+                </div>
+            </div>
+            <div class="checkboxes-container">
+                <form class="checkbox">
+                    <div class="checkbox">
+                        <input type="checkbox" class="custom-checkbox" id="value1" name="Вариант 1" value="value1">
+                        <label for="value1">Option 1</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="custom-checkbox" id="value2" name="Вариант 2" value="value2">
+                        <label for="value2">Option 2</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="custom-checkbox" id="value3" name="Вариант 3" value="value3">
+                        <label for="value3">Option 3</label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="custom-checkbox" id="value4" name="Вариант 4" value="value4" disabled>
+                        <label for="value4">Disabled</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <table class="table" rel="component.table">
+                <thead>
+                    <tr>
+                        <th>1</th>
+                        <th data-sortable="true">Title 2 (sortable)</th>
+                        <th>Title 3</th>
+                        <th data-sortable="true">Title 4 (sortable)</th>
+                        <th>Title 5</th>
+                    </tr>
+                </thead>
+                <tfoot class="tfoot">
+                    <tr>
+                        <td colspan="4" style="text-align: end; padding: 0 2rem">Total</td>
+                        <td>10 000</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="table medium" rel="component.table">
+                <thead>
+                    <tr>
+                        <th>1</th>
+                        <th data-sortable="true">Title 2 (sortable)</th>
+                        <th>Title 3</th>
+                        <th data-sortable="true">Title 4 (sortable)</th>
+                        <th>Title 5</th>
+                    </tr>
+                </thead>
+                <tfoot class="tfoot">
+                    <tr>
+                        <td colspan="4" style="text-align: end; padding: 0 2rem">Total</td>
+                        <td>10 000</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <table class="table large" rel="component.table">
+                <thead>
+                    <tr>
+                        <th>1</th>
+                        <th data-sortable="true">Title 2 (sortable)</th>
+                        <th>Title 3</th>
+                        <th data-sortable="true">Title 4 (sortable)</th>
+                        <th>Title 5</th>
+                    </tr>
+                </thead>
+                <tfoot class="tfoot">
+                    <tr>
+                        <td colspan="4" style="text-align: end; padding: 0 2rem">Total</td>
+                        <td>10 000</td>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                    <tr>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                        <td>Cell</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal" rel="control.modal">
+            <div rel="modal.window">
+                <div rel="modal.header">
+                    <h3 rel="modal.title" data-title="Fill the form"></h3>
+                    <button class="button-close" rel="modal.close"></button>
+                </div>
+                <div rel="modal.content">
+                    <form class="form">
+                        <div rel="control.editBox" class="editbox-name">
+                            <label class="label" for="name">Full Name</label>
+                            <div  class="input-box">
+                                <input 
+                                    rel="input"
+                                    data-pattern="[a-zA-Z0-9]+$"
+                                    data-verify-on-input="false"
+                                    placeholder=""
+                                    type="text"
+                                    name="name"
+                                    value=""
+                                    class="input input-name"
+                                />
+                            </div>
+                            <span rel="message" data-error="Please make sure that the entered data is correct" class="error-message"></span>
+                        </div>
+                        <div rel="control.editBox" class="editbox-email">
+                            <label class="label" for="email">Email</label>
+                            <div  class="input-box">
+                                <input 
+                                    rel="input"
+                                    data-pattern="[a-zA-Z0-9]+$"
+                                    data-verify-on-input="false"
+                                    placeholder=""
+                                    type="email"
+                                    name="email"
+                                    value=""
+                                    class="input input-email"
+                                />
+                            </div>
+                            <span rel="message" data-error="Please make sure that the entered data is correct" class="error-message"></span>
+                        </div>
+                        <button type="submit" class="button button-accent button-big">Submit the form</button>
+                    </form>
+                </div>
+                <div rel="modal.footer">
+                    <!-- <button class="button-close" rel="modal.close">Закрыть</button> -->
+                </div>
+            </div>
+            <div rel="modal.coverage"></div>
+        </div>
+    </wrapper>
+<script src="./controls/editbox/index.js"></script>
+<script src="./controls/modal/index.js"></script>
+<script src="./controls/table/index.js"></script>
+<script type="module" src="index.js"></script>
+</body>
+</html>

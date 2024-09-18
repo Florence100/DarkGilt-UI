@@ -1,0 +1,94 @@
+// Buttons
+
+.button {
+    width: $buttonWIdth;
+    max-width: 100%;
+    height: $buttonHeight;
+    text-transform: uppercase;
+    border-radius: $borderRadius;
+    font-family: 'Poppins-Medium', sans-serif;
+    font-weight: 400;
+    font-size: $fontSize-S;
+    color: $textButtonColor;
+    box-shadow: $boxShadow, $boxShadowInset;
+    text-shadow: $textShadow;
+    cursor: pointer;
+    @include gradient-animation($buttonColor, $buttonColorHover, 0.2s);
+
+    &:disabled {
+        color: rgba($textColor, 0.5);
+        cursor: default;
+        text-shadow: none;
+        box-shadow: $boxShadowNoContrast, $boxShadowInsetNoContrast;
+    }
+
+    &:not(:disabled).tabFocus {
+        &::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: $buttonWIdth - 0.25rem;
+            height: $buttonHeight - 0.25rem;
+            border: 2px dotted rgba($textColorLight, 0.5);
+        }
+    }
+
+    &.button-accent {
+        background: $buttonAccentColor;
+        color: $textButtonAccentColor;
+        text-shadow: $textAccentShadow;
+        font-weight: 600;
+        @include gradient-animation($buttonAccentColor, $buttonAccentColorHover, 0.2s);
+
+        &:disabled {
+            opacity: 0.7;
+            color: rgba($textButtonAccentColor, 0.6);
+            cursor: default;
+            text-shadow: none;
+            box-shadow: $boxShadowNoContrast, $boxShadowInsetNoContrast;
+        }
+
+        &:not(:disabled).tabFocus {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                width: 22rem - 0.25rem;
+                height: $buttonHeight - 0.25rem;
+                border: 2px dotted $secondaryColor;
+            }
+        }
+    }
+
+    &.button-big {
+        width: 22rem;
+        text-transform: none;
+
+        &:not(:disabled).tabFocus {
+            &::after {
+                width: 22rem - 0.25rem;
+            }
+        }
+    }
+}
+
+
+.button-close {
+    width: 24px;
+    height: 24px;
+    opacity: 0.6;
+    background-image: url('../assets/img/close.png');
+    background-size: 18px;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    &:focus {
+        outline: solid 1px $primaryColor;
+    }
+    &:hover {
+        opacity: 0.8;
+    }
+}

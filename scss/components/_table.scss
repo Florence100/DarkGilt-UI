@@ -1,0 +1,128 @@
+.table {
+    border-collapse: collapse;
+
+    tr th {
+        height: $tableThHeight-S;
+        text-transform: uppercase;
+        font-family: 'Poppins-Medium', sans-serif;
+        font-weight: 400;
+        font-size: $fontSize-S;
+        color: $textButtonColor;
+        box-shadow: $boxShadowInset;
+        border-right: 1px solid darker($secondaryColor, 0.5);
+        text-shadow: $textShadow;
+        background-image: $buttonColor;
+        position: relative;
+        user-select: none;
+        white-space: nowrap;
+    
+        &.sortable {
+            @include gradient-animation($buttonColor, $buttonColorHover, 0.2s);
+            padding: 0 calc(1rem + $fontSize-S);
+            transition: color 0.2s ease;
+            cursor: pointer;
+    
+            &:hover {
+                color: $primaryColor;
+            }
+    
+            &::after {
+                content: '▲';
+                @include flex-center;
+                opacity: 0;
+                transition: all 0.2s ease;
+                position: absolute;
+                top: 0;
+                right: 0.5rem;
+                height: 100%;
+            }
+    
+            &.ascenting::after {
+                opacity: 1;
+                transform: rotate(0deg);
+            }
+    
+            &.descenting::after {
+                opacity: 1;
+                transform: rotate(180deg);
+            }
+        }
+    
+        &:first-child {
+            border-top-left-radius: $borderRadius;
+        }
+    
+        &:last-child {
+            border-right: none;
+            border-top-right-radius: $borderRadius;
+        }
+    }
+    
+    tr td {
+        height: $tableTdHeight-S;
+        text-align: center;
+        color: $textColor;
+        background-color: $secondaryColor;
+        border-top: 1px solid darker($secondaryColor, 1);
+        box-shadow: $boxShadowInsetNoContrast;
+        transition: background-color 0.2s ease, color 0.2s ease;
+        white-space: nowrap;
+        cursor: default;
+    
+        &:hover {
+            color: $primaryColor;
+            background-color: lighter($secondaryColor, 1.25);
+        }
+    }
+    
+    tfoot tr td {
+        background-color: darker($secondaryColor, 0.5);
+        white-space: nowrap;
+    
+        &:hover {
+            background-color: darker($secondaryColor, 1);
+        }
+    
+        &:first-child {
+            border-bottom-left-radius: $borderRadius;
+        }
+    
+        &:last-child {
+            border-bottom-right-radius: $borderRadius;
+        }
+    }
+
+    &.medium {
+        width: 100%;
+
+        & tr th {
+            height: $tableThHeight-M;
+            font-size: $fontSize-M;
+
+            &.sortable {
+                padding: 0, calc(1rem + $fontSize-M);
+            }
+        }
+
+        & tr td {
+            height: $tableTdHeight-M;
+            font-size: $fontSize-M;
+        }
+    }
+
+    &.large {
+        & tr th {
+            height: $tableThHeight-L;
+            font-size: $fontSize-L;
+
+            &.sortable {
+                padding: 0, calc(1rem + $fontSize-L);
+            }
+        }
+
+        & tr td {
+            height: $tableTdHeight-L;
+            font-size: $fontSize-L;
+        }
+    }
+}

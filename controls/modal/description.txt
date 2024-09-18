@@ -1,0 +1,13 @@
+1 USE CASE:
+    const modal = new Modal({rootNode: modalRootNode, onOpen: callbackOnOpen, onClose: callbackOnClose});
+    modal.open();
+
+2 USE CASE:
+    const modal = new Modal({rootNode: modalRootNode});
+    modal.onOpen(callbackOnOpen);
+    modal.onClose(callbackOnClose);
+
+3 USE CASE:
+    const modal = new Modal({rootNode: modalRootNode});
+    modalRootNode.addEventListener('open-modal', callbackOnOpen);
+    modalRootNode.addEventListener('close-modal', callbackOnClose);

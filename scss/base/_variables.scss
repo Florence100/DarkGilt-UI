@@ -1,0 +1,73 @@
+@use 'sass:math';
+
+$PHI: math.div((math.sqrt(5) - 1), 2);
+$CONST: math.sqrt($PHI);
+
+// colors:
+$primaryColor: #fee38c;
+$secondaryColor: rgb(52, 53, 57);
+$grayColor: rgb(145, 146, 148);
+
+$bgColor: radial-gradient(lighter($secondaryColor, 1), darker($secondaryColor, 2));
+
+$buttonStartColor: lighter($secondaryColor, 1);
+$buttonEndColor: darker($secondaryColor, 1);
+$buttonAccentStartColor: lighter($primaryColor, 2);
+$buttonAccentEndColor: darker($primaryColor, 2);
+$buttonColor: linear-gradient(to bottom, $buttonStartColor, $buttonEndColor);
+$buttonColorHover: linear-gradient(to bottom, lighter($buttonStartColor, 1), lighter($buttonEndColor, 1));
+$buttonAccentColor: linear-gradient(to bottom, $buttonAccentStartColor, $buttonAccentEndColor);
+$buttonAccentColorHover: linear-gradient(to bottom, lighter($buttonAccentStartColor, 1.5), lighter($buttonAccentEndColor, 1.5));
+
+$radioButtonBgColor: darker(rgba($secondaryColor, 0.5), 1.75);
+$radioButtonBgColorHover: darker(rgba($secondaryColor, 0.5), 0.5);
+
+$checkboxBgColor: $radioButtonBgColor;
+$checkboxBgColorHover: $radioButtonBgColorHover;
+
+$inputBgColor: darker($secondaryColor, 1.8);
+
+$textColor: $grayColor;
+$textColorLight: lighter($textColor, 3);
+$textAccentColor: $primaryColor;
+$textButtonColor: $textColorLight;
+$textButtonAccentColor: $secondaryColor;
+
+//sizes
+$fontSize-S: 1rem;
+$fontSize-M: math.div($fontSize-S, $CONST);
+$fontSize-L: math.div($fontSize-S, math.pow($CONST, 2));
+
+$buttonWIdth: 12rem;
+$buttonHeight: 3rem;
+
+$inputWidth: 22rem;
+$inputHeight: 3rem;
+
+$tableThHeight-S: 2rem;
+$tableTdHeight-S: 1.75rem;
+$tableThHeight-M: math.div($tableThHeight-S, $CONST);
+$tableTdHeight-M: math.div($tableTdHeight-S, $CONST);
+$tableThHeight-L: math.div($tableThHeight-S, math.pow($CONST, 2));
+$tableTdHeight-L: math.div($tableTdHeight-S, math.pow($CONST, 2));
+
+$borderRadius: 3px;
+
+//effects
+$boxShadow: 2px 2px 5px darker($secondaryColor, 2);
+$boxShadowInset: inset 2px 2px 2px 0px lighter(rgba($grayColor, 0.2), 2);
+$boxShadowNoContrast: 1px 1px 5px darker($secondaryColor, 2);
+$boxShadowInsetNoContrast: inset 2px 2px 2px 0px darker(rgba($grayColor, 0.1), 1.5);
+$boxShadowRadioButton: 0px 2px 1px 0px lighter(rgba($grayColor, 0.2), 3), inset 0px 2px 2px 0px darker(rgba($secondaryColor, 0.8), 2.5);
+$boxShadowRadioButtonHover: 0px 2px 1px 0px lighter(rgba($grayColor, 0.2), 3), inset 0px 2px 2px 0px darker(rgba($secondaryColor, 0.7), 2.5);
+$boxShadowRadioButtonFocus: 0px 2px 1px 0px lighter(rgba($grayColor, 0.2), 3), inset 0px 0px 2px 0px $primaryColor;
+$boxShadowCheckbox: $boxShadowRadioButton;
+$boxShadowCheckboxHover: $boxShadowRadioButtonHover;
+$boxShadowCheckboxFocus: $boxShadowRadioButtonFocus;
+$textShadow: 1px 1px 1px darker($secondaryColor, 2);
+$textAccentShadow: 1px 1px 1px lighter($grayColor, 1);
+
+
+//break points
+$breakPointTablet: 1279px;
+$breakPointMobal: 767px;
